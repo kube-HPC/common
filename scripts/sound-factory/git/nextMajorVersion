@@ -1,0 +1,21 @@
+source ./gitrepos.sh
+
+cd $WORKSPACE
+
+for REPO in $REPOS
+do
+	echo ---- Repository $REPO ----
+	echo cd $REPO
+	cd $REPO
+	if [ -e package.json ]
+	then
+  	  echo npm version major -m "Bump version"
+	  npm version major -m "Bump version"
+	else
+	  echo no package.json. Skipping
+	fi
+	cd ../
+done
+
+cd $ENTRY_FOLDER
+source ./printworkspace.sh
