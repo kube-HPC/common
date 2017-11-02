@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+export PRIVATE_REGISTRY=localhost:5000
 pushd .
 source ../repos.sh
 
@@ -8,8 +9,7 @@ do
     echo --- Repository $REPO ---
     echo cd ${WORKSPACE}/${REPO}
     cd ${WORKSPACE}/${REPO}
-    git status
-
+    npm run build
     echo
 
 done

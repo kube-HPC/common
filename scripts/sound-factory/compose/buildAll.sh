@@ -8,8 +8,7 @@ do
     echo --- Repository $REPO ---
     echo cd ${WORKSPACE}/${REPO}
     cd ${WORKSPACE}/${REPO}
-    git status
-
+    npm run build
     echo
 
 done
