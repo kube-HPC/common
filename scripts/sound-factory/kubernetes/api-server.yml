@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: api-server
-        image: localhost:5000/sound/api-server
+        image: localhost:5000/sound/api-server:latest
         ports:
         - containerPort: 3000
 

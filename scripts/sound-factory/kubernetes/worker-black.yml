@@ -1,19 +1,19 @@
 apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
-  name: worker-green
+  name: worker-black
   labels:
-    app: worker-green
+    app: worker-black
     group: sound-factory
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: worker-green
+      app: worker-black
   template:
     metadata:
       labels:
-        app: worker-green
+        app: worker-black
         group: sound-factory
     spec:
       containers:
@@ -21,7 +21,7 @@ spec:
         image: localhost:5000/sound/worker:latest
         env:
           - name: JOB_TYPE
-            value: "green-alg"
+            value: "black-alg"
       - name: algorunner
         image: localhost:5000/sound/algorunner:latest
 
