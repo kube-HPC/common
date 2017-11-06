@@ -1,17 +1,17 @@
-source ../../repos.sh
-source ../../config.sh
-
-cd $WORKSPACE
+#!/usr/bin/env bash
+pushd .
+source ../repos.sh
 
 for REPO in $REPOS
 do
-	if [ "$REPO" != "common" ]
-	then
-		echo ---- Repository $REPO ----
-		echo git clone git@cir-srv01:RMS/$REPO.git
-		git clone git@cir-srv01:RMS/$REPO.git
-		cd $REPO
-		npm install
-		cd ..
-	fi
+    echo
+    echo --- Repository $REPO ---
+    echo cd ${WORKSPACE}
+    cd ${WORKSPACE}
+    git clone git@gitlab.com:greenapes/hkube/${REPO}.git
+    npm install
+    echo
+
 done
+
+popd
