@@ -1,0 +1,10 @@
+docker run \
+    --env=NEO4J_AUTH=none \
+    --publish=7474:7474 --publish=7687:7687 \
+    --volume=$HOME/neo4j/data:/data \
+    neo4j
+
+   stateManager.getJobState({ jobID: this._executionID, taskID: data.jobID })
+
+
+"/jobs/jobID-2121ew-rwer342-234234rw-2432f3f/tasks/green-alg:bdac976a-0b95-46c4-8165-8ef95f069af0/info/result"

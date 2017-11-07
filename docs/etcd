@@ -1,0 +1,62 @@
+ETCD_VERSION=latest
+TOKEN=my-etcd-token
+CLUSTER_STATE=new
+NAME_1=etcd-node-0
+HOST_1=127.0.0.1
+CLUSTER=${NAME_1}=http://${HOST_1}:2380
+THIS_NAME=${NAME_1}
+THIS_IP=${HOST_1}
+
+sudo docker run --net=host quay.io/coreos/etcd:${ETCD_VERSION} \
+	/usr/local/bin/etcd \
+        --data-dir=data.etcd --name ${THIS_NAME} \
+        --cors='*' \
+	--initial-advertise-peer-urls http://${THIS_IP}:2380 \
+        --listen-peer-urls http://${THIS_IP}:2380 \
+	--advertise-client-urls http://${THIS_IP}:4001 \
+        --listen-client-urls http://${THIS_IP}:4001 \
+	--initial-cluster ${CLUSTER} \
+	--initial-cluster-state ${CLUSTER_STATE} --initial-cluster-token ${TOKEN}
+
+
+ETCD_VERSION=latest
+TOKEN=my-etcd-token
+CLUSTER_STATE=new
+NAME_1=etcd-node-0
+NAME_2=etcd-node-1
+NAME_3=etcd-node-2
+HOST_1=127.0.0.1
+HOST_2=127.0.0.1
+HOST_3=127.0.0.1
+CLUSTER=${NAME_1}=http://${HOST_1}:2380
+DATA_DIR=/var/lib/etcd
+
+
+# For node 1
+THIS_NAME=${NAME_1}
+THIS_IP=${HOST_1}
+docker run --net=host \
+  -p 2379:2379 \
+  -p 2380:2380 \
+  --volume=${DATA_DIR}:/etcd-data \
+  --name ${THIS_NAME} quay.io/coreos/etcd:${ETCD_VERSION} \
+  /usr/local/bin/etcd \
+  --data-dir=/etcd-data --name ${THIS_NAME} \
+  --initial-advertise-peer-urls http://${THIS_IP}:2380 --listen-peer-urls http://${THIS_IP}:2380 \
+  --advertise-client-urls http://${THIS_IP}:2379 --listen-client-urls http://${THIS_IP}:2379 \
+  --initial-cluster ${CLUSTER} \
+  --initial-cluster-state ${CLUSTER_STATE} --initial-cluster-token ${TOKEN}
+
+THIS_NAME=${NAME_2}
+THIS_IP=${HOST_2}
+docker run \
+  -p 2379:2379 \
+  -p 2380:2380 \
+  --volume=${DATA_DIR}:/etcd-data \
+  --name ${THIS_NAME} quay.io/coreos/etcd:${ETCD_VERSION} \
+  /usr/local/bin/etcd \
+  --data-dir=/etcd-data --name ${THIS_NAME} \
+  --initial-advertise-peer-urls http://${THIS_IP}:2380 --listen-peer-urls http://${THIS_IP}:2380 \
+  --advertise-client-urls http://${THIS_IP}:2379 --listen-client-urls http://${THIS_IP}:2379 \
+  --initial-cluster ${CLUSTER} \
+  --initial-cluster-state ${CLUSTER_STATE} --initial-cluster-token ${TOKEN}

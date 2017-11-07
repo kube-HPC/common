@@ -1,0 +1,182 @@
+[global_config]
+  suppress_multiple_term_dialog = True
+[keybindings]
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+  [[sf]]
+    [[[child0]]]
+      fullscreen = False
+      last_active_term = 99ae236b-bea9-4a5a-b2d7-5da26ea4ace7
+      last_active_window = True
+      maximised = False
+      order = 0
+      parent = ""
+      position = 2176:194
+      size = 1362, 648
+      title = shay@idan-adsl: ~
+      type = Window
+    [[[child1]]]
+      order = 0
+      parent = child0
+      position = 327
+      ratio = 0.509259259259
+      type = VPaned
+    [[[child2]]]
+      order = 0
+      parent = child1
+      position = 678
+      ratio = 0.5
+      type = HPaned
+    [[[child5]]]
+      order = 1
+      parent = child1
+      position = 678
+      ratio = 0.5
+      type = HPaned
+    [[[terminal3]]]
+      order = 0
+      parent = child2
+      profile = default
+      type = Terminal
+      uuid = 99ae236b-bea9-4a5a-b2d7-5da26ea4ace7
+      command = cd dev/sound-factory/webhook-stub; node app.js; bash
+    [[[terminal4]]]
+      order = 1
+      parent = child2
+      profile = default
+      type = Terminal
+      uuid = 34d28433-7cd9-42ab-a37e-002916491a38
+      command = cd dev/sound-factory/pipeline-driver; node app.js; bash
+    [[[terminal6]]]
+      order = 0
+      parent = child5
+      profile = default
+      type = Terminal
+      uuid = 903dc9cc-ca86-4445-8a06-c58165edc168
+      command = cd dev/sound-factory/client-negotiator; node app.js; bash
+    [[[terminal7]]]
+      order = 1
+      parent = child5
+      profile = default
+      type = Terminal
+      uuid = 8f84ff94-9ec8-4ad6-a71b-657e3fef6af0
+  [[wrk]]
+    [[[child0]]]
+      fullscreen = False
+      last_active_term = 6969afe4-8149-4ad1-b6c1-c7b536737874
+      last_active_window = True
+      maximised = True
+      order = 0
+      parent = ""
+      position = 1920:24
+      size = 1680, 1026
+      title = shay@idan-adsl: ~
+      type = Window
+    [[[child1]]]
+      order = 0
+      parent = child0
+      position = 510
+      ratio = 0.5
+      type = VPaned
+    [[[child10]]]
+      order = 0
+      parent = child9
+      position = 837
+      ratio = 0.5
+      type = HPaned
+    [[[child13]]]
+      order = 1
+      parent = child9
+      position = 837
+      ratio = 0.5
+      type = HPaned
+    [[[child2]]]
+      order = 0
+      parent = child1
+      position = 252
+      ratio = 0.5
+      type = VPaned
+    [[[child3]]]
+      order = 0
+      parent = child2
+      position = 837
+      ratio = 0.5
+      type = HPaned
+    [[[child6]]]
+      order = 1
+      parent = child2
+      position = 837
+      ratio = 0.5
+      type = HPaned
+    [[[child9]]]
+      order = 1
+      parent = child1
+      position = 252
+      ratio = 0.5
+      type = VPaned
+    [[[terminal11]]]
+      command = cd dev/sound-factory/worker-stub; ALG="yellow-alg" node app.js; bash
+      order = 0
+      parent = child10
+      profile = default
+      type = Terminal
+      uuid = 6facc91e-bb0e-4ab8-8ec6-ba852abfa890
+    [[[terminal12]]]
+      command = cd dev/sound-factory/worker-stub; ALG="yellow-alg" node app.js; bash
+      order = 1
+      parent = child10
+      profile = default
+      type = Terminal
+      uuid = 750bc825-6968-49f5-b4d0-de1d8129a30c
+    [[[terminal14]]]
+      command = cd dev/sound-factory/worker-stub; ALG="black-alg" node app.js; bash
+      order = 0
+      parent = child13
+      profile = default
+      type = Terminal
+      uuid = 2728169d-1d8b-4637-8cf0-c353e3c16a59
+    [[[terminal15]]]
+      command = cd dev/sound-factory/worker-stub; ALG="black-alg" node app.js; bash
+      order = 1
+      parent = child13
+      profile = default
+      type = Terminal
+      uuid = 9c12c96b-a264-4cff-855f-1e37d94f2c77
+    [[[terminal4]]]
+      command = cd dev/sound-factory/worker-stub; ALG="green-alg" node app.js; bash
+      order = 0
+      parent = child3
+      profile = default
+      type = Terminal
+      uuid = 6969afe4-8149-4ad1-b6c1-c7b536737874
+    [[[terminal5]]]
+      command = cd dev/sound-factory/worker-stub; ALG="green-alg" node app.js; bash
+      order = 1
+      parent = child3
+      profile = default
+      type = Terminal
+      uuid = ffa32262-97e0-4fb6-b52c-8bd645f3ac70
+    [[[terminal7]]]
+      command = cd dev/sound-factory/worker-stub; ALG="green-alg" node app.js; bash
+      order = 0
+      parent = child6
+      profile = default
+      type = Terminal
+      uuid = b6f184fc-09ed-4d0b-9df7-1fbeb2b15d44
+    [[[terminal8]]]
+      command = cd dev/sound-factory/worker-stub; ALG="yellow-alg" node app.js; bash
+      order = 1
+      parent = child6
+      profile = default
+      type = Terminal
+      uuid = a4710581-13d3-4ca6-afd5-f2e006d1d3c8
+[plugins]
+[profiles]
+  [[default]]
+    background_image = None
