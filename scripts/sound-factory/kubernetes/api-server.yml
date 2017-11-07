@@ -18,9 +18,14 @@ spec:
     spec:
       containers:
       - name: api-server
-        image: localhost:5000/sound/api-server
+        image: localhost:5000/sound/api-server:latest
         ports:
         - containerPort: 3000
+        env:
+          - name: "BASE_URL_HOST"
+            value: "192.168.99.101"
+          - name: "BASE_URL_PORT"
+            value: "30001"
 
 ---
 
