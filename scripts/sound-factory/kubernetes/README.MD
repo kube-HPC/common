@@ -7,6 +7,9 @@
 2. to launch the dashboard  
 `minikube dashboard`
 3. setup local registry  
+storage:  
+`$ sudo mkdir -p /home/storage`  
+`$ chown -R $USER /home/storage`  
 `$ eval $(minikube docker-env)` this sets the system to use the minikube docker deamon  
 `$ kubectl apply -f helpers/registry.yml`
 4. now you can tag and push images to the registry as `localhost:5000/sound/repo:vXXX`  
