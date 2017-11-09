@@ -38,7 +38,10 @@ spec:
           protocol: TCP
       volumes:
       - name: image-store
-        emptyDir: {}
+        hostPath:
+          path: /hosthome/storage/registry
+          type: DirectoryOrCreate
+
 ---
 apiVersion: v1
 kind: Service

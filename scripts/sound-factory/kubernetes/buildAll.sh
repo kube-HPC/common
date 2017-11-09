@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+eval $(minikube docker-env)
 export PRIVATE_REGISTRY=localhost:5000
 pushd .
 source ../repos.sh

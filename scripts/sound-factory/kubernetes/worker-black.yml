@@ -23,5 +23,5 @@ spec:
           - name: JOB_TYPE
             value: "black-alg"
       - name: algorunner
-        image: localhost:5000/sound/algorunner:latest
+        image: localhost:5000/sound/algo-package:latest
 
