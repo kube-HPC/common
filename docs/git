@@ -1,0 +1,67 @@
+
+smb://tilna01/
+Aa123456
+
+git clone file:////run/user/1000/gvfs/smb-share:server=tilna01,share=8h151_ar1/RMS/Repository/<REPO>
+
+
+Commands:
+
+=========Create Repo============
+create folder <REPO_NAME>
+git init --bare
+copy to remote
+
+local:
+git init
+git add .
+git commit -a -m "initial commit"
+git remote add origin file:////run/user/1000/gvfs/smb-share:server=tilna01,share=8h151_ar1/RMS/Repository/sds
+git push -u origin master
+git clone file:////run/user/1000/gvfs/smb-share:server=tilna01,share=8h151_ar1/RMS/Repository/core
+
+
+=========Config============
+git config --global user.email "hareln@rafael.local"
+git config --global user.name "Nassi Harel"
+git config --global push.default simple
+
+=========Commit============
+git commit -a -m "comment"
+git push origin master
+
+========Reset deleted files=======
+git checkout -- <files>
+
+========Reset commit=======
+git reset --soft HEAD^
+git reset --hard HEAD^
+git reset HEAD <file>
+
+===========Tree=============
+git log --graph --all --decorate --oneline
+git log -p <file>
+=========Create Tag==========
+git tag -a v0.0.1.2 -m 'version 0.0.1.2'
+git push origin v0.0.1.2
+
+=========Create branch==========
+git checkout -b "<Branch>"
+git push origin <Branch>
+
+git checkout -b "rms_2"
+git push origin "rms_2"
+====merge to master======
+git checkout master
+git pull origin master
+git merge Branch
+git push origin master
+=========Delete branch==========
+git branch -d Branch
+git push origin :Branch
+=========Create ssh key==========
+cat .ssh/id_rsa.pub
+
+
+
+

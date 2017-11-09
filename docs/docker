@@ -1,0 +1,43 @@
+
+============rights==========
+sudo usermod -aG docker <user>
+
+==========push to registry==========
+docker tag kibana private.registry.rms:5000/kibana:5.5.0
+docker push private.registry.rms:5000/kibana:5.5.0
+
+==========images==========
+docker images
+docker load -i elasticsearch.tar
+docker build -t nginx-rms .
+docker save -o nginx-rms.tar nginx-rms
+docker rmi -f <image-id>
+
+==========containers==========
+docker run -it nginx-rms bash
+docker run -d --name kibana -e ELASTICSEARCH_URL=http://101.150.4.72:9200 --restart=always -p 5601:5601 kibana
+docker run -d --name redis --restart=always -p 6379:6379 redis
+docker run -d --name es -e ES_HEAP_SIZE=4g --restart=always -p 9200:9200 elasticsearch
+docker run -d --name kms --restart=always -p 8888:8888 kurento/kurento-media-server
+docker run -d --name nginx --restart=always -p 80:80 nginx-rms
+docker run -d --name super-container --restart=always -p 9090:9090 private.registry.rms:5000/vod/supervisor
+
+# delete after run:
+docker run --rm -p redis
+
+docker exec -it <container-id> bash
+docker restart nginx-container
+
+==========copy==========
+docker cp <container>:/<path> /<path>
+docker restart e84825f3d614
+docker logs e84825f3d614
+
+==========remove==========
+docker rm -f <container-id>
+docker rm -f $(docker ps -a -q)
+docker rmi -f $(docker images -a -q)
+
+==========network==========
+docker network disconnect bridge kms-container
+

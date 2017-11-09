@@ -1,0 +1,47 @@
+
+kubectl delete po $(./redis-master-pod)
+kubectl set image deployment/rms-ui rms-ui=private.registry.rms:5000/vod/rms-ui:v3.11.10
+kubectl set image deployment/catalog catalog=private.registry.rms:5000/vod/catalog:v3.11.3
+
+kubectl set image deployment/auth auth=private.registry.rms:5000/vod/auth:v3.10.2
+kubectl set image deployment/supervisor supervisor=private.registry.rms:5000/vod/supervisor:v3.10.2
+kubectl set image deployment/signalling signalling=private.registry.rms:5000/vod/signalling:v3.11.5
+kubectl set image deployment/worker-recording worker-recording=private.registry.rms:5000/vod/worker-recording:v3.11.9
+
+kubectl set image deployment/recording-curator recording-curator=private.registry.rms:5000/vod/recording-curator:v3.13.2
+
+== clean all ==
+./clear-docker
+./nodes-clean
+./kube-clear.sh
+./kube-down.sh
+./system-down.sh
+./vod-down
+
+== start all ==
+./rebuild-all
+./rebuild-vod
+./kube-up.sh
+./system-up.sh
+./vod-up
+
+== view all ==
+./info.sh
+./services-system.sh
+./pods-system.sh
+./pods-default.sh
+./logs-default.sh
+
+kubectl logs $NS kube-dns-kfhz0 -c skydns
+kubectl logs $NS kube-dns-kfhz0 -c kube2sky
+
+kubectl stop pod
+
+== UPLOAD ==
+./nodes-rmi <service>
+
+
+1. kubernetes/cluster/ubuntu/config-default.sh
+2. _kube_setup/scripts/config.sh
+3. _kube_setup/scripts/replace.sh
+

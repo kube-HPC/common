@@ -1,0 +1,22 @@
+
+sudo mount 101.150.4.250:/vol_vod ~/vol_vod
+
+===ssh===
+ssh-copy-id matyz@101.150.4.70
+
+lsof -i :4000
+du -ah --max-depth=1
+
+===show proccess of type===
+ps -ef | grep node
+
+
+===Kill proccess with childs===
+kill -TERM -19486; killall streamer
+killall -9 streamer node ffmpeg
+
+
+===search in files===
+grep -rnI "close()" | grep -v node_modules
+
+

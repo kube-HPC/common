@@ -1,0 +1,12 @@
+
+====Get All=====
+redis-cli KEYS "*vod*"
+
+====Get ID=====
+redis-cli GET "KEY"
+
+====Delete all=====
+redis-cli KEYS "*vod*" | xargs redis-cli DEL
+
+====PUBSUB=====
+PUBSUB CHANNELS "worker_to_supervisor*"
