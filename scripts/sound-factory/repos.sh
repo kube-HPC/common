@@ -6,5 +6,6 @@ export REPOS="algoPackage
 client-negotiator
 pipeline-driver
 worker
-algorunner"
+algorunner
+webhook-stub-ui"
 
