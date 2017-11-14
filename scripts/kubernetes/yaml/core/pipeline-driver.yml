@@ -18,7 +18,6 @@ spec:
     spec:
       containers:
         - name: pipeline-driver
-          image: >-
-            registry.gitlab.com/greenapes/hkube/registry/pipeline-driver:latest
+          image: 'registry.gitlab.com/greenapes/hkube/registry/pipeline-driver:latest'
       imagePullSecrets:
         - name: regsecret
