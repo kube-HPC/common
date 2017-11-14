@@ -17,11 +17,12 @@ spec:
         group: sound-factory
     spec:
       containers:
-      - name: worker
-        image: localhost:5000/sound/worker:latest
-        env:
-          - name: JOB_TYPE
-            value: "black-alg"
-      - name: algorunner
-        image: localhost:5000/sound/algo-package:latest
-
+        - name: worker
+          image: 'registry.gitlab.com/greenapes/hkube/registry/worker:latest'
+          env:
+            - name: JOB_TYPE
+              value: black-alg
+        - name: algorunner
+          image: 'registry.gitlab.com/greenapes/hkube/registry/algo-package:latest'
+    imagePullSecrets:
+      - name: regsecret
