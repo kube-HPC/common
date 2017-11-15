@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-eval $(minikube docker-env)
-export PRIVATE_REGISTRY=localhost:5000
+#eval $(minikube docker-env)
+export PRIVATE_REGISTRY=registry.gitlab.com/greenapes/hkube/registry
 pushd .
 source ../repos.sh
 
