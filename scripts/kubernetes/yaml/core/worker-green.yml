@@ -4,7 +4,7 @@ metadata:
   name: worker-green
   labels:
     app: worker-green
-    group: sound-factory
+    group: hkube
 spec:
   replicas: 1
   selector:
@@ -14,7 +14,7 @@ spec:
     metadata:
       labels:
         app: worker-green
-        group: sound-factory
+        group: hkube
     spec:
       containers:
         - name: worker
