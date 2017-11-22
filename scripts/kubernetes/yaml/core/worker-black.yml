@@ -18,11 +18,9 @@ spec:
     spec:
       containers:
         - name: worker
-          image: 'registry.gitlab.com/greenapes/hkube/registry/worker:latest'
+          image: 'hkube/worker:latest'
           env:
             - name: JOB_TYPE
               value: black-alg
         - name: algorunner
-          image: 'registry.gitlab.com/greenapes/hkube/registry/algo-package:latest'
-      imagePullSecrets:
-        - name: regsecret
+          image: 'hkube/algo-package:latest'

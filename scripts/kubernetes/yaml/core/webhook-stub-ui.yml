@@ -18,11 +18,9 @@ spec:
     spec:
       containers:
         - name: webhook-stub-ui
-          image: 'registry.gitlab.com/greenapes/hkube/registry/webhook-stub-ui:latest'
+          image: 'hkube/webhook-stub-ui:latest'
           ports:
             - containerPort: 3002
-      imagePullSecrets:
-        - name: regsecret
 ---
 kind: Service
 apiVersion: v1
