@@ -3,7 +3,7 @@ HOME="$( cd "$( dirname "${BASH_SOURCE[0]}" )/../.." && pwd )"
 
 export WORKSPACE=$HOME
 export REPOS="algoPackage
-client-negotiator
+api-server
 pipeline-driver
 worker
 algorunner
