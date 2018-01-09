@@ -27,7 +27,7 @@ services:
     environment:
       REDIS_SERVICE_HOST: "redis"
       ETCD_CLIENT_SERVICE_HOST: "etcd0"
-      JOB_TYPE: "green-alg"
+      ALGORITHM_TYPE: "green-alg"
   algoRunner:
     image: "sound/algorunner"
     environment:
@@ -37,7 +37,7 @@ services:
     environment:
       REDIS_SERVICE_HOST: "redis"
       ETCD_CLIENT_SERVICE_HOST: "etcd0"
-      JOB_TYPE: "green-alg"
+      ALGORITHM_TYPE: "green-alg"
   algoRunner2:
     image: "sound/algorunner"
     environment:
